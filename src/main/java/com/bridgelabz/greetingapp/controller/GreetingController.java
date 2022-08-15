@@ -1,12 +1,10 @@
 package com.bridgelabz.greetingapp.controller;
 
 import com.bridgelabz.greetingapp.entity.Greeting;
+import com.bridgelabz.greetingapp.entity.Person;
 import com.bridgelabz.greetingapp.service.GreetingInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -32,5 +30,14 @@ public class GreetingController {
     @GetMapping("/greeting/servicelayer")
     public Greeting sayHelloFromServiceLayer(){
         return greetingInterface.message();
+    }
+
+    @PostMapping("/greeting/servicelayer/person")
+    public Greeting sayHelloFromServiceLayerByPerson(@RequestBody Person person){
+        return new Greeting(id.incrementAndGet(),String.format(hello,person.getFirst_name()+" "+person.getLast_name()));
+    }
+    @GetMapping("greeting/servicelayer/id")
+    public Greeting sayHelloFromServiceLayerByPerson(@RequestParam(value = "first_name" ,defaultValue ="Megha")String first_name,@RequestParam(value = "last_name" ,defaultValue = "Jagadale")String last_name){
+        return new Greeting(id.incrementAndGet(),String.format(hello,first_name+" "+last_name));
     }
 }
