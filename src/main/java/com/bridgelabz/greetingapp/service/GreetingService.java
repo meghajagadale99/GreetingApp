@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 @Service
@@ -29,5 +30,11 @@ public class GreetingService implements GreetingInterface {
     public Optional<Person> findById(long id) {
         Optional<Person> person = greetingRepository.findById(id);
         return person;
+    }
+
+    @Override
+    public List<Person> findAllPerson() {
+        List<Person> greeting = greetingRepository.findAll();
+        return greeting;
     }
 }
