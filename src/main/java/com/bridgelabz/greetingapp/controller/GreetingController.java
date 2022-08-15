@@ -40,4 +40,10 @@ public class GreetingController {
     public Greeting sayHelloFromServiceLayerByPerson(@RequestParam(value = "first_name" ,defaultValue ="Megha")String first_name,@RequestParam(value = "last_name" ,defaultValue = "Jagadale")String last_name){
         return new Greeting(id.incrementAndGet(),String.format(hello,first_name+" "+last_name));
     }
+
+    @PostMapping("/greeting")
+    public String saveTheGreetingMessage(@RequestBody Person person){
+        return greetingInterface.saveTheGreetingMessage(person);
+    }
+
 }

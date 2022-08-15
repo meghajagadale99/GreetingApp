@@ -1,6 +1,16 @@
 package com.bridgelabz.greetingapp.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Greetings")
 public class Person {
+    @Id
+    @GeneratedValue
+    private long id;
     private String first_name;
     private String last_name;
 
