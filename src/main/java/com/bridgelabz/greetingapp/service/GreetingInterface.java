@@ -16,4 +16,6 @@ public interface GreetingInterface {
     List<Person> findAllPerson();
 
     Person edit(long id, Person person);
+
+    Person delete(long id);
 }

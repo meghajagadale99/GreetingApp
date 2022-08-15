@@ -45,4 +45,12 @@ public class GreetingService implements GreetingInterface {
         greetingRepository.save(greeting.get());
         return greeting.get();
     }
+
+    @Override
+    public Person delete(long id) {
+        Optional<Person> person = this.findById(id);
+        greetingRepository.delete(person.get());
+        return person.get();
+    }
+
 }
