@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapp.service.GreetingInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -44,6 +45,11 @@ public class GreetingController {
     @PostMapping("/greeting")
     public String saveTheGreetingMessage(@RequestBody Person person){
         return greetingInterface.saveTheGreetingMessage(person);
+    }
+
+    @GetMapping("/find")
+    public Optional<Person> findPersonById(@RequestParam long id){
+        return greetingInterface.findById(id);
     }
 
 }
