@@ -29,4 +29,9 @@ public class Person {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
+
+    public void update(Person person){
+        this.first_name = person.getFirst_name();
+        this.last_name = person.getLast_name();
+    }
 }

@@ -14,4 +14,6 @@ public interface GreetingInterface {
     Optional<Person> findById(long id);
 
     List<Person> findAllPerson();
+
+    Person edit(long id, Person person);
 }

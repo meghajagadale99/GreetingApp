@@ -58,4 +58,9 @@ public class GreetingController {
         return greetingInterface.findAllPerson();
     }
 
+    @PutMapping("/edit/{id}")
+    public Person editPerson(@RequestBody Person person,@PathVariable long id){
+        return greetingInterface.edit(id,person);
+    }
+
 }

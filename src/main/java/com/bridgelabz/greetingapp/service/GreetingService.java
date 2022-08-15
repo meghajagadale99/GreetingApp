@@ -37,4 +37,12 @@ public class GreetingService implements GreetingInterface {
         List<Person> greeting = greetingRepository.findAll();
         return greeting;
     }
+
+    @Override
+    public Person edit(long id, Person person) {
+        Optional<Person> greeting = this.findById(id);
+        greeting.get().update(person);
+        greetingRepository.save(greeting.get());
+        return greeting.get();
+    }
 }
